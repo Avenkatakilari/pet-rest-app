@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+   pets-app:
+    image: kv/pets-app:1.0
+    container_name: pets-app
+    restart: always
+    depends_on:
+      - pets-db
+    networks:
+      - pets-network
+    pots:
+      - 8080:9090
+
+   pets-db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always       
+    environment:
+      MYSQL_ROOT_PASSWORD: kvg1r1
+      MYSQL_DATABASE: petdb
+      MYSQL_USER: arvind
+      MYSQL_PASSWORD: kv5arv1nd
+    volumes:
+      - type: bind
+        source: ./data
+        target: /var/lib/mysql
+    pots:
+      - 3306:3306
+    networks:
+      - pets-network  
+   adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    container_name: mysql-adminer
+    networks: 
+        - pets-network  
+networks:
+  pets-network:
+    driver: bridge 

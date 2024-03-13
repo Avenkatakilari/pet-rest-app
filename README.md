@@ -40,35 +40,37 @@ Change port to desired on using SERVER_PORT variable in .env
 To create user use postman or similar tools
 
 http://localhost:9009/api/register using POST method
-
+```sh
 {
     "username":"testuser",
     "email":"testuser@gmail.com",
     "password":"NDg1MmU1ZW"
 }
-
+```
 ## To get token
 
 http://localhost:9009/api/token using POST method
-
+```sh
 {
     "username":"testuser",
     "password":"NDg1MmU1ZW"
 }
-
+```
 ## To create a pet type
 
 http://localhost:9009/api/pet-type using POST method
+```sh
 {
   "name: "dogs"
   "description" : "All types of Dogs those can be domesticated"
 }
-
+```
 pass the bearer token which you got it from the token api in the authentication header
 
 ## To create a pet 
 
 http://localhost:9009/api/pet using POST method
+```sh
 {
     "name":"Sparrow",
     "description":"My pet cooper is a Poodle",
@@ -84,7 +86,7 @@ http://localhost:9009/api/pet using POST method
     "phone":"242424242424"
 
 }
-
+```
 pass the bearer token which you got it from the token api in the authentication header
 
 Refer /api/urls.py to execute List, View, Update APIs

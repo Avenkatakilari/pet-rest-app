@@ -1,6 +1,8 @@
 # pet-rest-app
 This is a demo project to show how to build a microservice with Django Restframework (DRF)
-
+This demo project requires for stand alone mode.
+1. Python 3+
+2. MySQL 8+
 
 Table of contents:
 
@@ -18,7 +20,17 @@ Table of contents:
 ```sh
 git clone https://github.com/Avenkatakilari/pet-rest-app.git
 cd petsapp
+# Create virtual environment
+python -m venv env
+# Activate virtual environment
+./env/Scripts/activate
+# Install dependencies
 RUN pip install -r requirements.txt
+# Run the Django server
+python manage.py runserver
+
+
+
 ```
 
 Then visit [http://localhost:4040/](http://localhost:9009/)

@@ -33,7 +33,7 @@ python manage.py runserver
 
 ```
 
-Then visit [http://localhost:4040/](http://localhost:9009/)
+Then visit [http://localhost:9009/](http://localhost:9009/)
 Change port to desired on using SERVER_PORT variable in .env
 ## Tests
 ## add-user

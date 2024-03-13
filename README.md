@@ -1,5 +1,6 @@
-# express-mongo-jwt
-This is a demo project that can be used as Boilerplate for an microservice with Rest API development with Node, Express, MonogDB, Mongoose, JWT Middleware
+# pet-rest-app
+This is a demo project to show how to build a microservice with Django Restframework (DRF)
+
 
 Table of contents:
 
@@ -12,72 +13,79 @@ Table of contents:
 
 <!-- /TOC -->
 
-
 ## Install
 
 ```sh
-git clone https://github.com/vgirik/express-mongo-jwt
-cd express-mongo-jwt
-npm install
-npm start
+git clone https://github.com/Avenkatakilari/pet-rest-app.git
+cd petsapp
+RUN pip install -r requirements.txt
 ```
 
-Then visit [http://localhost:4040/](http://localhost:4040/)
+Then visit [http://localhost:4040/](http://localhost:9009/)
+Change port to desired on using SERVER_PORT variable in .env
 ## Tests
 ## add-user
-
 To create user use postman or similar tools
 
-http://localhost:4040/user/add-user using POST method
+http://localhost:9009/api/register using POST method
 
-add-user payload:
-   {
-       "firstName":"...",
-       "lastName":"...",
-       "gender":"Male",
-       "dob":"1990-01-01",
-       "password":"...",
-       "email":".."
-    }
+{
+    "username":"testuser",
+    "email":"testuser@gmail.com",
+    "password":"NDg1MmU1ZW"
+}
 
-## get JWT token
+## To get token
 
-Method : POST
+http://localhost:9009/api/token using POST method
 
-http://localhost:4040/user/token
+{
+    "username":"testuser",
+    "password":"NDg1MmU1ZW"
+}
 
-payload:
-   {
-       "email":"...",
-       "password":".."
-   }
+## To create a pet type
 
-## get list of users through JWT authentication 
-
-Method : GET
-
-http://localhost:4040/user/list 
+http://localhost:9009/api/pet-type using POST method
+{
+  "name: "dogs"
+  "description" : "All types of Dogs those can be domesticated"
+}
 
 pass the bearer token which you got it from the token api in the authentication header
 
-## to logout the and invalidate JWT token
+## To create a pet 
 
-Method : DELETE
+http://localhost:9009/api/pet using POST method
+{
+    "name":"Sparrow",
+    "description":"My pet cooper is a Poodle",
+    "user": {
+        "id":1
+        
+    },
+    "pettype":{
+        "id":1
+    },
+    "city":"Los Angeles",
+    "state":"CA",
+    "phone":"242424242424"
 
-http://localhost:4040/user/logout
+}
 
 pass the bearer token which you got it from the token api in the authentication header
- 
+
+Refer /api/urls.py to execute List, View, Update APIs
 
 ## Docker
 
 You can also use docker for development.
 
 ```sh
-docker build -t kv/pets-app:1.0 .
+docker build -t kv/test-mongo:1.0 .
 ```
 Start the services
- Before you start the service make sure create a directory data on directory above the petsapp
+ Before you start the service make sure create a directory data on directory above the express-mongo-jwt
 
  e.g.,
   ```sh
@@ -99,6 +107,4 @@ docker-compose logs -f
 Note that we are overriding the environment variable set in `.env` file because we don't want our data erased by the tests.
 
 
-## License
 
-Apache 2.0

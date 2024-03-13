@@ -17,10 +17,10 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always       
     environment:
-      MYSQL_ROOT_PASSWORD: kvg1r1
+      MYSQL_ROOT_PASSWORD: a3ZnMXIx
       MYSQL_DATABASE: petdb
       MYSQL_USER: arvind
-      MYSQL_PASSWORD: kv5arv1nd
+      MYSQL_PASSWORD: a3Y1YXJ2MW5k
     volumes:
       - type: bind
         source: ./data

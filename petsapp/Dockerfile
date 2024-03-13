@@ -15,7 +15,7 @@ RUN apt-get update -qq && \
 RUN pip install -r requirements.txt
 
 # Starting our application
-CMD [ "python", "./petsapp/manage.py", "makemigrations", "api" && "python", "./petsapp/manage.py", "migrate" && "python", "./petsapp/manage.py", "runserver"]
+CMD ["/bin/bash", "-c", "python ./manage.py makemigrations api &&  python ./manage.py migrate && python ./manage.py runserver 0.0.0.0:9090"]
 
 # Exposing server port
 EXPOSE 9090
